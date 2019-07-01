@@ -1,0 +1,29 @@
+This is the FastEtch-tau baseline variant of the code.
+
+Dependencies:
+------------------
+GCC version > 4.8
+
+Compile:
+------------
+make clean; make
+
+Execute:
+------------
+In order to run the folowing command-line arguments are needed:
+
+1) Input Read file in FASTA format
+2) ALPHABET file
+3) Coverage 
+4) Delta: 50  /* redundant field */
+5) CM-sketch "w": 65536
+6) CM-sketch "d": 8
+7) tau threshold
+8) Hash file name /* created when run for the first time, reused for subsequent runs */
+
+For example:
+--------------
+ 
+export OMP_NUM_THREADS=32
+
+./kmer Ecoli_80x_reads.fasta DNA_alphabet.txt 80 50 65536 8 400 hashes_ecoli.dat 
